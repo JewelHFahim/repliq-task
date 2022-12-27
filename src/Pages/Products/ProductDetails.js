@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import UpdateProduct from "./UpdatProduct";
+// import UpdateProduct from "./UpdatProduct";
 
 const ProductDetails = () => {
 

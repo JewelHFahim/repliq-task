@@ -1,17 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { TbListDetails } from 'react-icons/tb';
-import { FaEdit } from 'react-icons/fa';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const TodayOrder = () => {
 
-    const { data: products = [], refetch, isLoading} = useQuery({
+    const { data: products = [], isLoading} = useQuery({
         queryKey: ["products"],
         queryFn: () =>
         fetch(`https://fakestoreapi.com/products`)
           .then((res) => res.json()),
       });
+
+      if(isLoading){
+        return <progress className="progress w-56"></progress>
+      }
 
 
     return (
@@ -39,7 +40,7 @@ const TodayOrder = () => {
             <tbody>
             {
               products.map((product, i) =>
-                          <tr key = {product.i}>
+                          <tr key = {product.id}>
                             <th> 24 Dec 22</th>
                             <td className='flex items-center'>
                             <img className=' w-24 h-24 p-5' src={product.image} alt="" />

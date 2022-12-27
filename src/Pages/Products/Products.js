@@ -49,7 +49,7 @@ const Products = () => {
         {/* Search */}
         <input
           type="text"
-          placeholder="Type here"
+          placeholder="Search here"
           className="input input-bordered bg-slate-200  w-11/12 mx-auto"
         />
 
