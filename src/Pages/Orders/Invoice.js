@@ -7,23 +7,23 @@ const Invoice = () => {
             <div class="w-3/5 bg-white shadow-lg">
                 <div class="flex justify-between p-4">
                     <div>
-                        <h1 class="text-3xl italic font-extrabold tracking-widest text-indigo-500">HealthOS</h1>
+                        <h1 class="text-3xl font-extrabold tracking-widest text-primary">Repliq</h1>
                         <p class="text-base">If account is not paid within 7 days the credits details supplied as
                             confirmation.</p>
                     </div>
                     <div class="p-2">
                         <ul class="flex">
-                            <li class="flex flex-col items-center p-2 border-l-2 border-indigo-200">
+                            <li class="flex flex-col items-center p-2 border-l-2 border-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                 </svg>
                                 <span class="text-sm">
-                                    www.healthos.com
+                                www.repliq.dev
                                 </span>
                             </li>
-                            <li class="flex flex-col p-2 border-l-2 border-indigo-200">
+                            <li class="flex flex-col p-2 border-l-2 border-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -38,7 +38,7 @@ const Invoice = () => {
                         </ul>
                     </div>
                 </div>
-                <div class="w-full h-0.5 bg-indigo-500"></div>
+                <div class="w-full h-0.5 bg-primary"></div>
                 <div class="flex justify-between p-4">
                     <div>
                         <h6 class="font-bold">Order Date : <span class="text-sm font-medium"> 12/12/2022</span></h6>
@@ -166,10 +166,9 @@ const Invoice = () => {
                     </div>
                     <div class="p-4">
                         <h3>Signature</h3>
-                        <div class="text-4xl italic text-indigo-500">AAA</div>
                     </div>
                 </div>
-                <div class="w-full h-0.5 bg-indigo-500"></div>
+                <div class="w-full h-0.5 bg-primary"></div>
 
                 <div class="p-4">
                     <div class="flex items-center justify-center">

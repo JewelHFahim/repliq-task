@@ -1,7 +1,11 @@
-import React from "react";
-import profilePic from "../../Assets/messi.jpg";
+import React, { useContext } from "react";
+import profilePic from "../../Assets/user.jpg";
+import { UserContext } from "../../Context.js/AuthContext";
 
 const Account = () => {
+
+  const {user} = useContext(UserContext);
+
   return (
     <div className="mb-20">
       {/* Header */}
@@ -12,16 +16,22 @@ const Account = () => {
       <div className="overflow-x-auto my-10 px-5">
         <div className="hero bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
-            <img
-              src={profilePic}
-              className=" w-72 h-72 rounded-lg lg:mr-10"
-              alt=""
-            />
+
+
+            <div className="w-72 h-72 lg:mr-10">
+                {
+                  user.photoURL = null ?
+                  <img className="rounded-full" src={user.photoURL} alt="" />
+                  :
+                  <img className="rounded-full" src={profilePic} alt="" />
+                }
+            </div>
+
             <div>
-              <h1 className="text-5xl font-bold">Leonel Messi</h1>
+              <h1 className="text-xl font-bold">Name:{user?.displayName}</h1>
               <p className="py-6">Role: Admin</p>
-              <p className="">Email: admin@gmail.com</p>
-              <p className="py-6">Number: 01911209322</p>
+              <p className="">Email: {user?.email}</p>
+              <p className="py-6">Number: {user?.phone}</p>
               <button className="btn btn-primary">Update Profile</button>
             </div>
           </div>

@@ -3,8 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShopping, AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
 import { FiLayers } from 'react-icons/fi';
+import { FaUserCircle } from 'react-icons/fa';
 import { UserContext } from "../../Context.js/AuthContext";
-import logo from "../../Assets/HealthOS Logo.png"
+import logo from "../../Assets/repliq logo.jpg"
 
 
 const Navbar = () => {
@@ -31,8 +32,13 @@ const Navbar = () => {
       <li><Link onClick={handleLogout}>Logout</Link></li>
       <li><Link to="/account" >
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" alt="" />
+        <div>
+            {
+              user.photoURL = null ?
+              <img className="w-10 rounded-full" src={user.photoURL} alt="" />
+              :
+              <FaUserCircle className='text-3xl'/>
+            }
         </div>
       </label>
        </Link></li>
@@ -51,7 +57,7 @@ const Navbar = () => {
     <div className=" hidden lg:flex navbar bg-base-100">
       <div className="flex-1">
         <a href="/" className="btn btn-ghost normal-case text-xl">
-        <img className="w-40" src={logo} alt="" />
+        <img className="w-14 h-14" src={logo} alt="" />
         </a>
       </div>
       <div className="hidden lg:flex">

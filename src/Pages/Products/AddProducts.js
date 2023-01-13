@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const AddProducts = () => {
+const AddProducts = ({refetch}) => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
@@ -35,7 +35,7 @@ const AddProducts = () => {
             description: data.description,
             image: imgData.data.url,
           };
-          fetch("https://healthos-server-one.vercel.app/products", {
+          fetch("http://localhost:5000/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -46,7 +46,8 @@ const AddProducts = () => {
             .then((data) => {
               console.log(data);
               form.reset();
-                toast.success("added Successfylly");
+              toast.success("added Successfylly");
+              refetch();
               navigate("/products");
             });
         }
@@ -109,7 +110,6 @@ const AddProducts = () => {
                   className="select select-bordered w-full"
                 >
                   <option defaultValue={"Good"} disabled selected>
-                    {" "}
                     Select
                   </option>
                   <option>Men's</option>
@@ -191,9 +191,11 @@ const AddProducts = () => {
             </div>
 
             <div className="modal-action">
-              <button className="btn border-none bg-primary rounded-lg text-white font-semibold px-10 mx-auto">
-                Add Product
-              </button>
+        <label htmlFor="my-modal"> 
+        <button className="btn border-none bg-primary rounded-lg text-white font-semibold px-10 mx-auto">
+        Add Product
+        </button>
+        </label>
             </div>
           </form>
         </div>

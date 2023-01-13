@@ -6,7 +6,7 @@ const TodayOrder = () => {
     const { data: products = [], isLoading} = useQuery({
         queryKey: ["products"],
         queryFn: () =>
-        fetch(`https://fakestoreapi.com/products`)
+        fetch(`http://localhost:5000/products`)
           .then((res) => res.json()),
       });
 

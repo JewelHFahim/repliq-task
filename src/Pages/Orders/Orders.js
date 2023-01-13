@@ -1,5 +1,4 @@
 import { AiOutlineCloudDownload } from "react-icons/ai";
-import { BiSearchAlt } from "react-icons/bi";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Posts from "../../Component/Posts";
@@ -13,7 +12,7 @@ const Orders = () => {
   const { data: products = [], isLoading} = useQuery({
     queryKey: ["products"],
     queryFn: () =>
-    fetch(`https://fakestoreapi.com/products`)
+    fetch(`http://localhost:5000/products`)
       .then((res) => res.json()),
   });
 
@@ -47,7 +46,7 @@ const Orders = () => {
       </select>
 
       {/* Download Orders */}
-      <div><button className='btn border-none bg-primary rounded-lg text-white font-semibold w-11/12 '>Download All Orders <AiOutlineCloudDownload className="text-2xl ml-2"/></button></div>
+      <div><button disabled className='btn border-none bg-primary rounded-lg text-white font-semibold w-11/12 '>Download All Orders <AiOutlineCloudDownload className="text-2xl ml-2"/></button></div>
     </div>
 
         <Posts products={currentPost} isLoading={isLoading}></Posts>

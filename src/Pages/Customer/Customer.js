@@ -22,13 +22,13 @@ const Customer = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: () =>
-      fetch(`https://healthos-server-one.vercel.app/users/`).then((res) =>
+      fetch(`http://localhost:5000/users/`).then((res) =>
         res.json()
       ),
   });
 
   const handleDelete = (id) => {
-    fetch(`https://healthos-server-one.vercel.app/users/${id}`, {
+    fetch(`http://localhost:5000/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -83,8 +83,8 @@ const Customer = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, i) => (
-              <tr key={user.i}>
+            {users.map((user,i) => (
+              <tr key={user._id}>
                 <th>HOS{i + 1}</th>
                 <td>24/12/22</td>
                 <td>{user.name}</td>

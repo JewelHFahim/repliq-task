@@ -16,13 +16,14 @@ const Products = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
-      fetch(`https://healthos-server-one.vercel.app/products`).then((res) =>
-        res.json()
+      fetch(`http://localhost:5000/products`)
+      .then(
+        (res) => res.json(),
       ),
   });
 
   const handleDelete = (id) => {
-    fetch(`https://healthos-server-one.vercel.app/products/${id}`, {
+    fetch(`http://localhost:5000/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -34,8 +35,8 @@ const Products = () => {
       });
   };
 
-  if(isLoading){
-    return <progress className="progress w-56"></progress>
+  if (isLoading) {
+    return <progress className="progress w-56"></progress>;
   }
 
   return (
@@ -72,7 +73,7 @@ const Products = () => {
           >
             + Add Product
           </label>
-          <AddProducts></AddProducts>
+          <AddProducts refetch = {refetch}></AddProducts>
         </div>
       </div>
 
@@ -82,12 +83,11 @@ const Products = () => {
           <thead>
             <tr>
               <th>SKU</th>
-              <th>Product Name</th>
+              <th>Details</th>
               <th>Category</th>
               <th>Price</th>
               <th>Stock</th>
               <th>Status</th>
-              <th>Details</th>
               <th>Published</th>
               <th>Actions</th>
             </tr>
@@ -96,28 +96,22 @@ const Products = () => {
             {products.map((product, i) => (
               <tr key={product.i}>
                 <td>2792FE</td>
-
+                <Link
+                    to={`/products/${product._id}`}
+                    className="tooltip tooltip-primary"
+                    data-tip="Details"
+                  >
                 <td className="flex items-center">
                   <img className=" w-20 h-20 p-5" src={product.image} alt="" />
                   {product.title.slice(0, 10)}
                 </td>
-
+                </Link>
                 <td>{product.category}</td>
 
                 <td>${product.sale}</td>
                 <td>67</td>
                 <td className="text-primary">Selling</td>
-
-                <td>
-                  <Link
-                    to={`/products/${product._id}`}
-                    className="tooltip tooltip-primary"
-                    data-tip="Details"
-                  >
-                    <TbListDetails className="text-2xl hover:text-primary" />
-                  </Link>
-                </td>
-
+                
                 <td>
                   <BsToggleOn className="text-2xl hover:text-primary" />
                 </td>

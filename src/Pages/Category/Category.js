@@ -15,13 +15,13 @@ const Category = () => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch(`https://healthos-server-one.vercel.app/categories`).then((res) =>
-        res.json()
-      ),
+      fetch(`http://localhost:5000/categories/`).then((res) => res.json()),
   });
 
   const handleDelete = (id) => {
-    fetch(`https://healthos-server-one.vercel.app/categories/${id}`, {
+
+    fetch(`http://localhost:5000/categories/${id}`, {
+
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -33,8 +33,8 @@ const Category = () => {
       });
   };
 
-  if(isLoading){
-    return <progress className="progress w-56"></progress>
+  if (isLoading) {
+    return <progress className="progress w-56"></progress>;
   }
 
   return (
@@ -54,7 +54,9 @@ const Category = () => {
 
         {/* Category */}
         <select className="select select-bordered bg-slate-200  w-11/12 mx-auto">
-          <option disabled selected>Category</option>
+          <option disabled selected>
+            Category
+          </option>
           <option>Shoe</option>
           <option>Jacket</option>
           <option>Sun Glass</option>
@@ -87,6 +89,7 @@ const Category = () => {
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody>
             {categories.map((category, i) => (
               <tr key={category._id}>
@@ -114,6 +117,7 @@ const Category = () => {
               </tr>
             ))}
           </tbody>
+          
         </table>
       </div>
     </div>

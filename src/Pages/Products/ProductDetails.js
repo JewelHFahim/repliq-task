@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 // import UpdateProduct from "./UpdatProduct";
 
 const ProductDetails = () => {
@@ -30,7 +30,10 @@ const ProductDetails = () => {
           <p className="mt-4"><span className="font-bold mr-2">Category:</span>{category}</p>
 
           <div className="mt-6">
-            <label htmlFor="update-modal" className="px-8 py-2 bg-primary text-white rounded-md">Update Product</label>
+          <Link to="/products">
+          <button className="px-8 py-2 bg-primary text-white rounded-md">Back Products</button>
+
+          </Link>
           </div>
 
       </div>
