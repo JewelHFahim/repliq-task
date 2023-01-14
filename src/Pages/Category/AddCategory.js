@@ -15,7 +15,7 @@ const AddCategory = () => {
       category: data.category,
       type: data.type,
     };
-    fetch("http://localhost:5000/categories", {
+    fetch("https://healthos-server-jewelhfahim.vercel.app/categories", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -70,7 +70,7 @@ const AddCategory = () => {
                   required
                   className="select select-bordered w-full"
                 >
-                  <option defaultValue={"Select"} disabled >
+                  <option defaultValue={"Select"} disabled>
                     Select
                   </option>
                   <option>Men's</option>

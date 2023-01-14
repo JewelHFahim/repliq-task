@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const AddProducts = ({refetch}) => {
+const AddProducts = ({ refetch }) => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
@@ -35,7 +35,7 @@ const AddProducts = ({refetch}) => {
             description: data.description,
             image: imgData.data.url,
           };
-          fetch("http://localhost:5000/products", {
+          fetch("https://healthos-server-jewelhfahim.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -191,11 +191,11 @@ const AddProducts = ({refetch}) => {
             </div>
 
             <div className="modal-action">
-        <label htmlFor="my-modal"> 
-        <button className="btn border-none bg-primary rounded-lg text-white font-semibold px-10 mx-auto">
-        Add Product
-        </button>
-        </label>
+              <label htmlFor="my-modal">
+                <button className="btn border-none bg-primary rounded-lg text-white font-semibold px-10 mx-auto">
+                  Add Product
+                </button>
+              </label>
             </div>
           </form>
         </div>

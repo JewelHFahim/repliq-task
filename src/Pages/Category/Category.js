@@ -15,13 +15,13 @@ const Category = () => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch(`http://localhost:5000/categories/`).then((res) => res.json()),
+      fetch(`https://healthos-server-jewelhfahim.vercel.app/categories/`).then(
+        (res) => res.json()
+      ),
   });
 
   const handleDelete = (id) => {
-
-    fetch(`http://localhost:5000/categories/${id}`, {
-
+    fetch(`https://healthos-server-jewelhfahim.vercel.app/categories/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -117,7 +117,6 @@ const Category = () => {
               </tr>
             ))}
           </tbody>
-          
         </table>
       </div>
     </div>

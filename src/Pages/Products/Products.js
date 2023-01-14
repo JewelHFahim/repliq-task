@@ -16,14 +16,13 @@ const Products = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
-      fetch(`http://localhost:5000/products`)
-      .then(
-        (res) => res.json(),
+      fetch(`https://healthos-server-jewelhfahim.vercel.app/products`).then(
+        (res) => res.json()
       ),
   });
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://healthos-server-jewelhfahim.vercel.app/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -73,7 +72,7 @@ const Products = () => {
           >
             + Add Product
           </label>
-          <AddProducts refetch = {refetch}></AddProducts>
+          <AddProducts refetch={refetch}></AddProducts>
         </div>
       </div>
 
@@ -97,21 +96,25 @@ const Products = () => {
               <tr key={product.i}>
                 <td>2792FE</td>
                 <Link
-                    to={`/products/${product._id}`}
-                    className="tooltip tooltip-primary"
-                    data-tip="Details"
-                  >
-                <td className="flex items-center">
-                  <img className=" w-20 h-20 p-5" src={product.image} alt="" />
-                  {product.title.slice(0, 10)}
-                </td>
+                  to={`/products/${product._id}`}
+                  className="tooltip tooltip-primary"
+                  data-tip="Details"
+                >
+                  <td className="flex items-center">
+                    <img
+                      className=" w-20 h-20 p-5"
+                      src={product.image}
+                      alt=""
+                    />
+                    {product.title.slice(0, 10)}
+                  </td>
                 </Link>
                 <td>{product.category}</td>
 
                 <td>${product.sale}</td>
                 <td>67</td>
                 <td className="text-primary">Selling</td>
-                
+
                 <td>
                   <BsToggleOn className="text-2xl hover:text-primary" />
                 </td>

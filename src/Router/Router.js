@@ -51,7 +51,9 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://healthos-server-jewelhfahim.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/products/:id",
@@ -61,7 +63,9 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://healthos-server-jewelhfahim.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/categories",

@@ -41,7 +41,7 @@ const UpdateProduct = () => {
             description: data.description,
             image: imgData.data.url,
           };
-          fetch("http://localhost:5000/products", {
+          fetch("https://healthos-server-jewelhfahim.vercel.app/products", {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
