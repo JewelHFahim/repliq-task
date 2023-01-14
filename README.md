@@ -2,7 +2,7 @@ This is a e-commerce website. Mainly design for both PC and Mobile device. Its a
 
 USED: react.js, node.js, mongodb, express.js, vercel, dotenv, firebase, tailwind, daisy ui and some npm packages
 
-Live site: https://health-os-b7032.web.app/
+Live site: https://repliq.netlify.app/
 
 To Explore:
 email: admin@gmail.com
